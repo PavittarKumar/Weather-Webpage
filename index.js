@@ -32,7 +32,7 @@ var call=()=>{
 				<li>${response.main.pressure} hPa</li>
 				<li>${response.main.sea_level} hPa</li>
 				<li>${response.main.grnd_level} hPa</li>
-				<li>${response.timezone} s</li>
+				<li>${new Date(response.timezone * 1000).toISOString().substr(11, 5)}</li>
 				<li>${response.wind.speed} m/s</li>
 				<li>${response.wind.deg}° </li>
 				</ul>
