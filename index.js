@@ -8,7 +8,6 @@ var call=()=>{
 			return response.json();
 		})
 		.then(response=>{
-			console.log(response);
 			newHtml=`
 			<div class='header'>
 			<h2>${response.name} [Country: ${response.sys.country}]</h2>
@@ -48,12 +47,9 @@ var call=()=>{
 			element.insertAdjacentHTML('beforeend',newHtml);
 		})
 		.catch(err => {
-			console.log(err);
-
 			newHtml=`<div class="header">
 			<h2>
-				City Not Found! <br>
-				${err}
+				Please check the City Name! <br>
 			</h2>
 		</div>`;
 
