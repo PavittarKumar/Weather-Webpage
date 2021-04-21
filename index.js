@@ -8,9 +8,39 @@ var call=()=>{
 			return response.json();
 		})
 		.then(response=>{
+			console.log(response);
+			newHtml=`
+			<div class='header'>
+			<h2>${response.name} [Country: ${response.sys.country}]</h2>
+			<h3>${response.weather[0].description.toUpperCase()}</h3>
+			<div class="content">
+				<ul class="type">
+				<li>Cloudiness:</li>
+				<li>Temp: </li>
+				<li>Humidity: </li>
+				<li>Pressure: </li>
+				<li>Sea Level: </li>
+				<li>Ground Level: </li>
+				<li>Time Zone: </li>
+				<li>Wind Speed: </li>
+				<li>Wind Deg: </li>
+				</ul>
 
-			newHtml=`<div class='header'><h2>${response.name} [Country: ${response.sys.country}]</h2><ul><li>Cloudiness: ${response.clouds.all}%</li><li>Temp: ${Math.round(response.main.temp-273.15)}°C Feels Like: ${Math.round(response.main.feels_like-273.15)}°C Min Temp: ${Math.round(response.main.temp_min-273.15)}°C Max Temp: ${Math.round(response.main.temp_max-273.15)}°C </li><li>Humidity: ${response.main.humidity}%</li><l1>Pressure: ${response.main.pressure} hPa</l1><li>Sea Level: ${response.main.sea_level} hPa</li><li>Ground Level: ${response.main.grnd_level} hPa</li><li>Time Zone: ${response.timezone} s</li><li>Wind Speed: ${response.wind.speed} m/s</li><li>Wind Deg: ${response.wind.deg}° </li></ul></div>`;
+				<ul class="data">
+				<li>${response.clouds.all}%</li>
+				<li>${Math.round(response.main.temp-273.15)}°C  </li>
+				<li>${response.main.humidity}%</li>
+				<li>${response.main.pressure} hPa</li>
+				<li>${response.main.sea_level} hPa</li>
+				<li>${response.main.grnd_level} hPa</li>
+				<li>${response.timezone} s</li>
+				<li>${response.wind.speed} m/s</li>
+				<li>${response.wind.deg}° </li>
+				</ul>
+			</div>
 
+		 </div>`;
+			
 			el=document.querySelector('.header')
 			el.parentNode.removeChild(el);
 
@@ -22,7 +52,8 @@ var call=()=>{
 
 			newHtml=`<div class="header">
 			<h2>
-				City Not Found!
+				City Not Found! <br>
+				${err}
 			</h2>
 		</div>`;
 
