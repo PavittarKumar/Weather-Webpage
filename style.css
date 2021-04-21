@@ -73,8 +73,9 @@ body{
     font-family:'Quicksand', sans-serif;
     text-align: left;
     border: solid;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    border-width: 1px;
     border-color: whitesmoke;
     list-style: none;
 }
