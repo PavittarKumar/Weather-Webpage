@@ -49,7 +49,7 @@ var call=()=>{
 		.catch(err => {
 			newHtml=`<div class="header">
 			<h2>
-				Please check the City Name! <br>
+				Please check the city name! <br>
 			</h2>
 		</div>`;
 
