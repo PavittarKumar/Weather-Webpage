@@ -72,15 +72,16 @@ body{
 .header ul{
     font-family:'Quicksand', sans-serif;
     text-align: left;
-}
-
-.data {
-    list-style-type: none;
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    list-style: none;
 }
 
 .content {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .header p{
