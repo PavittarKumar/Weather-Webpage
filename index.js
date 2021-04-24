@@ -45,6 +45,10 @@ var call=()=>{
 
 			element=document.querySelector('.info');
 			element.insertAdjacentHTML('beforeend',newHtml);
+
+			var arr = response.weather[0].description.split(" ");
+			document.body.style.backgroundImage = `linear-gradient(90deg, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.7)),url('https://source.unsplash.com/1600x900/?${arr[arr.length - 1]}')`;
+
 		})
 		.catch(err => {
 			newHtml=`<div class="header">
