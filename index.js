@@ -8,6 +8,18 @@ var call=()=>{
 			return response.json();
 		})
 		.then(response=>{
+
+			var arr = response.weather[0].description.split(" ");
+			var imageUrl = `https://source.unsplash.com/1600x900/?${arr[arr.length - 1]}`;
+
+			fetch(imageUrl)
+			.then(res => res.blob())
+			.then(image => {
+				var localUrl = URL.createObjectURL(image);
+				document.body.style.backgroundImage = `linear-gradient(90deg, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.7)),url(${localUrl})`;
+				return localUrl;
+			});
+
 			newHtml=`
 			<div class='header'>
 			<h2>${response.name} [Country: ${response.sys.country}]</h2>
@@ -45,10 +57,6 @@ var call=()=>{
 
 			element=document.querySelector('.info');
 			element.insertAdjacentHTML('beforeend',newHtml);
-
-			var arr = response.weather[0].description.split(" ");
-			document.body.style.backgroundImage = `linear-gradient(90deg, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, .2), rgba(0, 0, 0, 0.7)),url('https://source.unsplash.com/1600x900/?${arr[arr.length - 1]}')`;
-
 		})
 		.catch(err => {
 			newHtml=`<div class="header">
